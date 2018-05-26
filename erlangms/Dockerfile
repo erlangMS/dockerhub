@@ -19,6 +19,6 @@ VOLUME ~/.erlangms
 VOLUME ~/.odbc.ini
 
 
-CMD ["tmux new-session -d '/var/opt/erlangms/ems-bus/start.sh' \; attach"]
+CMD ["/var/opt/erlangms/start.sh"]
 
 

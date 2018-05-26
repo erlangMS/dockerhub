@@ -9,7 +9,7 @@ ln -s /root/.odbc.ini ~/.odbc.ini
 
 # ErlangMs installation
 cd $HOME
-git clone https://github.com/erlangms/ems-bus
+git clone http://github.com/erlangms/ems-bus ems-bus
 cd ems-bus
 git checkout v1.0.25.ldap
 ./build.sh
