@@ -5,7 +5,7 @@ MAINTAINER evertonagilar <evertonagilar@gmail.com>
 ENV HOME /var/opt/erlangms
 ENV ERLANGMS_IN_DOCKER true
 
-WORKDIR $HOME
+WORKDIR $HOME/ems-bus
 
 ADD assets /assets
 ADD assets/start.sh /var/opt/erlangms/start.sh
