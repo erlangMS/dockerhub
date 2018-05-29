@@ -8,7 +8,6 @@ ENV ERLANGMS_IN_DOCKER true
 WORKDIR $HOME/ems-bus
 
 ADD assets /assets
-ADD assets/start.sh /var/opt/erlangms/start.sh
 RUN /assets/setup.sh
 RUN rm -rf /assets
 
@@ -20,6 +19,6 @@ VOLUME ~/.erlangms
 VOLUME ~/.odbc.ini
 
 
-CMD ["/var/opt/erlangms/start.sh"]
+CMD ["/var/opt/erlangms/ems-bus/start.sh"]
 
 
