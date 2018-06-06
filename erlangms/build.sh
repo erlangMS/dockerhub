@@ -23,7 +23,7 @@
 #
 ########################################################################################################
 
-VERSION=1.0.0
+VERSION=1.0.25
 IMAGE=erlangms
 
 echo "Build $IMAGE:$VERSION..."
@@ -44,3 +44,4 @@ sudo docker tag "$ID" $IMAGE:latest
 sudo docker tag "$ID" $IMAGE:$VERSION
 sudo docker tag "$ID" erlangms/erlangms
 sudo docker tag "$ID" docker.io/erlangms/erlangms
+sudo docker push docker.io/erlangms/erlangms

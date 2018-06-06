@@ -17,7 +17,7 @@ EXPOSE 2300 2301 2389 4369
 # Volumes
 VOLUME ~/.erlangms
 VOLUME ~/.odbc.ini
-
+VOLUME ~/.hosts.erlang
 
 CMD ["/var/opt/erlangms/ems-bus/start.sh"]
 

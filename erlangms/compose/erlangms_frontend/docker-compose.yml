@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  frontend:
+    image: erlangms/erlangms
+    ports:
+     - 3010:2301
+    shm_size: 3G
+    stdin_open: true
+    tty: true
+    build: .
+    volumes:
+     - ./config/:/var/opt/erlangms/.erlangms/
+     - ./odbc.ini:/var/opt/erlangms/.odbc.ini
+     - ./app/dist/:/app/
+    dns: 164.41.101.4 
+    dns_search: 
+     - ad-fub.unb.br
+
+    
+
