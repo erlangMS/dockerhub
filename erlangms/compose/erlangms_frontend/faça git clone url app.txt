@@ -1,6 +1,0 @@
-Faça git clone do projeto frontend aqui nesta pasta!
-
-git clone url_do_projeto_no_gitlab  app
-
-
-Obs.: A pasta do projeto deve se chamar app ou terá que mudar no arquivo de configuração docker-compose.yml

@@ -11,6 +11,7 @@ ln -s /root/.odbc.ini ~/.odbc.ini
 cd $HOME
 git clone http://github.com/erlangms/ems-bus ems-bus
 cd ems-bus
+git checkout v2.0.0
 ./build.sh
 
 
