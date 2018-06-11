@@ -42,6 +42,7 @@ ID=$(sudo docker images | grep "$IMAGE" | head -n 1 | awk '{print $3}')
 
 sudo docker tag "$ID" $IMAGE:latest
 sudo docker tag "$ID" $IMAGE:$VERSION
-sudo docker tag "$ID" erlangms/erlangms
-sudo docker tag "$ID" docker.io/erlangms/erlangms
+sudo docker tag "$ID" erlangms/erlangms:latest
+sudo docker tag "$ID" erlangms/erlangms:$VERSION
+sudo docker tag "$ID" docker.io/erlangms/erlangms:$VERSION
 sudo docker push docker.io/erlangms/erlangms
