@@ -4,7 +4,7 @@
 
 ## Pré-requisitos com links para instalação
 
-- *Docker* para usar a ferramenta *docker* e *docker-compose* **(https://docs.docker.com/install/)**
+- *Software Docker* para usar a ferramenta *docker* e *docker-compose* **(https://docs.docker.com/install/)**
 
     * Windows  - Baixar o setup do link acima e instalar
 
@@ -17,7 +17,7 @@
 
 
 
-- *git* para usar a ferramenta *git*  **(https://git-scm.com/)**
+- *Software git* para usar a ferramenta *git*  **(https://git-scm.com/)**
 
     * Windows  - Baixar o setup do link acima e instalar
 
