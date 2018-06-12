@@ -94,7 +94,7 @@ barramento agindo como um servidor LDAP v3 para autenticar usuários na base de 
 ```
 
 
-<b>3) Aguarde alguns segundos para carregar a instância do barramento e digite o seguinte comando a seguir para testar uma requisição LDAP
+<b>3) Aguarde alguns segundos para carregar a instância do barramento e digite o seguinte comando para testar uma requisição LDAP
 
 
 - Windows - Usar uma ferramente gráfica de administração LDAP de sua preferência
