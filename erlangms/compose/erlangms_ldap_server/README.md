@@ -9,11 +9,11 @@
     * Windows  - Baixar o setup do link acima e instalar
 
     * Linux
-        ```bash
-           sudo apt-get install -y docker.io
-           sudo apt-get install -y docker-compose
-           sudo systemctl restart docker
-        ```
+    ```bash
+         sudo apt-get install -y docker.io
+         sudo apt-get install -y docker-compose
+         sudo systemctl restart docker
+    ```
 
 
 
