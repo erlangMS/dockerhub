@@ -9,11 +9,11 @@
     * Windows  - Baixar o setup do link acima e instalar
 
     * Linux
-         <code>
+        ```bash
            sudo apt-get install -y docker.io
            sudo apt-get install -y docker-compose
            sudo systemctl restart docker
-        </code>
+        ```
 
 
 
@@ -22,9 +22,9 @@
     * Windows  - Baixar o setup do link acima e instalar
 
     * Linux
-         <code>
+         ```bash
            sudo apt-get install -y git
-        </code>
+        ```
 
 
 > No Windows, a performance do Docker é bastante prejudicada se o Antivírus está ativo.
@@ -47,52 +47,52 @@ barramento agindo como um servidor LDAP v3 para autenticar usuários na base de 
 
 
 - Windows
-<code>
+```bash
    cd \
    git clone http://www.servicosssi.unb.br/ssi/erlangms_ldap_server
-</code>
+```
 
 > No Windows, é importante colocar dentro da pasta C:\Desenvolvimento para que o Antivírus não prejudique a performance.
 
 - Linux
-<code>
+```bash
    cd /var/opt
    git clone http://www.servicosssi.unb.br/ssi/erlangms_ldap_server
-</code>
+```
 
 
 <b>2) Antes de usar o servidor, é preciso fazer *build* para criar a imagem Docker</b>
 
 
 - Windows
-<code>
+```bash
    cd erlangms_ldap_server
    docker-compose build 
-</code>
+```
 
 - Linux
-<code>
+```bash
    cd erlangms_frontend
    sudo docker-compose build 
-</code>
+```
 
 
 <b>3) Por último, subir a instância da imagem **erlangms_ldap_server** criada no *passo 2* </b>
 
 
 - Windows
-<code>
+```bash
     cd erlangms_ldap_server
     docker-compose down           # somente se for a segunda vez de execução para ter certeza que está parado
     docker-compose up
-</code>
+```
 
 - Linux
-<code>
+```bash
     cd erlangms_ldap_server
     suoo docker-compose down           # somente se for a segunda vez de execução para ter certeza que está parado
     sudo docker-compose up
-</code>
+```
 
 
 <b>3) Aguarde alguns segundos para carregar a instância do barramento e os data loaders e digite o seguinte comando para testar uma requisição LDAP
@@ -101,9 +101,9 @@ barramento agindo como um servidor LDAP v3 para autenticar usuários na base de 
 - Windows - Usar uma ferramente gráfica de administração LDAP de sua preferência
 
 - Linux
-<code>
+```bash
     ldapsearch -xLLL -h 127.0.0.1:2389 -b dc=unb,dc=br -D cn=admin,dc=unb,dc=br uid=geral -w 123456
-</code>
+```
 
 > Para usar comando ldapsearch no Linux é preciso instalar o pacote do cliente OpenLDAP
 
@@ -126,13 +126,13 @@ Este ambiente possui:
 
 ## Perguntas e respostas
 
-<b> 1) Como fazer com que o barramento acesse outro banco de dados para buscar os dados de autenticação</b>
+<b> 1) Como fazer com que o barramento acesse outro banco de dados para buscar os dados de usuários para autenticação</b>
 
 Para isso, primeiro edite o arquivo odbc.ini e altere o ip do banco de dados que será utilizado para conexão. Depois, edite o arquivo config/emsbus.conf e
 na seção *datasources*, altere o usuário/senha de conexão do banco de dados.
 
 
-<b> 2) Como eu posso alterar o usuário ou senha do usuário de administração do servidor LDAP.
+<b> 2) Como eu posso alterar o usuário ou senha do usuário de administração do servidor LDAP.</b>
 
 Para isso, edite o arquivo config/emsbus.cof e altere o parâmetro *ldap_admin* e *ldap_password_admin*.
 
