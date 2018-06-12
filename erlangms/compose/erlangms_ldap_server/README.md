@@ -36,11 +36,11 @@
 A proposta deste projeto é criar uma imagem docker com uma instância do 
 barramento agindo como um servidor LDAP v3 para autenticar usuários na base de dados do sistema de controle de acesso (SCA).
 
-> A instância por padrão autentica no banco de dados desenvbd3 mas pode ser alterado no arquivo *odbc.ini*
+> O barramento autentica por padrão no banco de desenvolvimento mas pode ser alterado no arquivo *odbc.ini*
 
 
 
-## 2 passos simples para colocar em uso
+## 3 passos simples para colocar em uso
 
 
 <b> 1) Fazer git clone do projeto do erlangms_ldap_server</b>
