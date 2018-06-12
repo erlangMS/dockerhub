@@ -114,7 +114,7 @@ barramento agindo como um servidor LDAP v3 para autenticar usuários na base de 
 Este ambiente possui:
  
 
-* Uma instância do *ErlangMS* como servidor LDAP para *autenticação* de usuário no SCA
+* Uma instância do *ErlangMS* como servidor LDAP para *autenticação* de usuário no SCA rodando na porta 2389
 
 * Os arquivos de configuração e os *datasources* configurados para acessar o banco de desenvolvimento (desenvbd3.ad-fub.unb.br)
 
