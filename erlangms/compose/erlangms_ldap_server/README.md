@@ -9,6 +9,7 @@
     * Windows  - Baixar o setup do link acima e instalar
 
     * Linux
+    
     ```bash
          sudo apt-get install -y docker.io
          sudo apt-get install -y docker-compose
@@ -22,6 +23,7 @@
     * Windows  - Baixar o setup do link acima e instalar
 
     * Linux
+    
          ```bash
            sudo apt-get install -y git
         ```
@@ -40,13 +42,14 @@ barramento agindo como um servidor LDAP v3 para autenticar usuários na base de 
 
 
 
-## 3 passos simples para colocar em uso
+## Passos para colocar em uso
 
 
 <b> 1) Fazer git clone do projeto do erlangms_ldap_server</b>
 
 
 - Windows
+-
 ```bash
    cd \
    cd Desenvolvimento
@@ -56,6 +59,7 @@ barramento agindo como um servidor LDAP v3 para autenticar usuários na base de 
 > No Windows, é importante colocar dentro da pasta C:\Desenvolvimento para que o Antivírus não prejudique a performance.
 
 - Linux
+
 ```bash
    cd /var/opt
    git clone http://www.servicosssi.unb.br/ssi/erlangms_ldap_server
@@ -66,12 +70,14 @@ barramento agindo como um servidor LDAP v3 para autenticar usuários na base de 
 
 
 - Windows
+
 ```bash
    cd erlangms_ldap_server
    docker-compose build 
 ```
 
 - Linux
+
 ```bash
    cd erlangms_frontend
    sudo docker-compose build 
@@ -82,24 +88,27 @@ barramento agindo como um servidor LDAP v3 para autenticar usuários na base de 
 
 
 - Windows
+
 ```bash
     cd erlangms_ldap_server
     docker-compose up
 ```
 
 - Linux
+
 ```bash
     cd erlangms_ldap_server
     sudo docker-compose up
 ```
 
 
-<b>3) Aguarde alguns segundos e digite o seguinte comando para testar uma requisição LDAP</b>
+<b>4) Aguarde alguns segundos e digite o seguinte comando para testar uma requisição LDAP</b>
 
 
 - Windows - Usar uma ferramente gráfica de administração LDAP de sua preferência
 
 - Linux
+
 ```bash
     ldapsearch -xLLL -h 127.0.0.1:2389 -b dc=unb,dc=br -D cn=admin,dc=unb,dc=br uid=geral -w 123456
 ```
@@ -107,11 +116,11 @@ barramento agindo como um servidor LDAP v3 para autenticar usuários na base de 
 > Para usar comando ldapsearch no Linux é preciso instalar o pacote do cliente OpenLDAP
 
 
-## Notas
+## Notas sobre o projeto
 
 <br>
 
-Este ambiente possui:
+Este projeto possui:
  
 
 * Uma instância do *ErlangMS* como servidor LDAP para *autenticação* de usuário no SCA rodando na porta 2389
