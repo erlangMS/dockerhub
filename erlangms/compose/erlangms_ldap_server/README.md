@@ -93,7 +93,6 @@ barramento agindo como um servidor LDAP v3 para autenticar usuários na base de 
     sudo docker-compose up
 ```
 
-> Dica: Para parar, existe o comando docker-compose down
 
 <b>3) Aguarde alguns segundos para carregar a instância do barramento e digite o seguinte comando a seguir para testar uma requisição LDAP
 
