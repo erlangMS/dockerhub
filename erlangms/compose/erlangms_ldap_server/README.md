@@ -49,6 +49,7 @@ barramento agindo como um servidor LDAP v3 para autenticar usuários na base de 
 - Windows
 ```bash
    cd \
+   cd Desenvolvimento
    git clone http://www.servicosssi.unb.br/ssi/erlangms_ldap_server
 ```
 
@@ -77,25 +78,24 @@ barramento agindo como um servidor LDAP v3 para autenticar usuários na base de 
 ```
 
 
-<b>3) Por último, subir a instância da imagem **erlangms_ldap_server** criada no *passo 2* </b>
+<b>3) Por último, subir o servidor **erlangms_ldap_server** </b>
 
 
 - Windows
 ```bash
     cd erlangms_ldap_server
-    docker-compose down           # somente se for a segunda vez de execução para ter certeza que está parado
     docker-compose up
 ```
 
 - Linux
 ```bash
     cd erlangms_ldap_server
-    suoo docker-compose down           # somente se for a segunda vez de execução para ter certeza que está parado
     sudo docker-compose up
 ```
 
+> Dica: Para parar, existe o comando docker-compose down
 
-<b>3) Aguarde alguns segundos para carregar a instância do barramento e os data loaders e digite o seguinte comando para testar uma requisição LDAP
+<b>3) Aguarde alguns segundos para carregar a instância do barramento e digite o seguinte comando a seguir para testar uma requisição LDAP
 
 
 - Windows - Usar uma ferramente gráfica de administração LDAP de sua preferência
