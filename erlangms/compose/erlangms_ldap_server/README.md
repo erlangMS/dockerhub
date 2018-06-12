@@ -125,15 +125,15 @@ Este ambiente possui:
 
 ## Perguntas e respostas
 
-<b> 1) Como fazer com que o barramento acesse outro banco de dados para buscar os dados de usuários para autenticação</b>
+<b> 1) Como fazer com que o barramento acesse outro banco de dados para buscar os dados de usuários?</b>
 
-Para isso, primeiro edite o arquivo odbc.ini e altere o ip do banco de dados que será utilizado para conexão. Depois, edite o arquivo config/emsbus.conf e
+Para isso, primeiro edite o arquivo *odbc.ini* e altere o IP do banco de dados que será utilizado para conexão. Depois, edite o arquivo *config/emsbus.conf* e
 na seção *datasources*, altere o usuário/senha de conexão do banco de dados.
 
 
-<b> 2) Como eu posso alterar o usuário ou senha do usuário de administração do servidor LDAP.</b>
+<b> 2) Como eu posso alterar o usuário ou senha do usuário de administração do servidor LDAP?</b>
 
-Para isso, edite o arquivo config/emsbus.cof e altere o parâmetro *ldap_admin* e *ldap_password_admin*.
+Para isso, edite o arquivo *config/emsbus.cof* e altere o parâmetro *ldap_admin* e *ldap_password_admin*.
 
 
 
