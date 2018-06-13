@@ -94,10 +94,8 @@ barramento agindo como um servidor HTTP.
 ```
 
 
-<b>3) Aguarde alguns segundos e digite o seguinte comando para testar uma requisição LDAP</b>
+<b>3) Aguarde alguns segundos e digite o seguinte comando para testar</b>
 
-
-- Windows - Usar uma ferramente gráfica de administração LDAP de sua preferência
 
 - Linux
 ```bash
