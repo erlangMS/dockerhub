@@ -1,5 +1,6 @@
 #/bin/bash
 
+
 # Some useful software for administration
 apt-get install -q -y --no-install-recommends apt-utils curl wget zip unzip net-tools
 
@@ -12,6 +13,14 @@ echo "alias ls='ls $LS_OPTIONS'" >> ~/.bashrc && \
 echo "alias ll='ls $LS_OPTIONS -l'" >> ~/.bashrc && \
 echo "alias l='ls $LS_OPTIONS -lA'" >> ~/.bashrc && \
 echo 'set -g default-terminal "screen-256color"' >> ~/.tmux.conf
+cat >> ~/.bashrc <<EOF
+# Run tmux on startup
+if command -v tmux>/dev/null; then
+        if [ ! -z "\$PS1" ]; then # unless shell not loaded interactively, run tmux
+                [[ ! \$TERM =~ screen ]] && [ -z "\$TMUX" ] && tmux
+        fi
+fi
+EOF
 
 
 # Some important libraries for ErlangMS
