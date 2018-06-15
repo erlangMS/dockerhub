@@ -1,0 +1,13 @@
+
+net/sourceforge
+net
+META-INF
+net/sourceforge/jtds/jdbc/cache
+net/sourceforge/jtds/test
+net/sourceforge/jtds/jdbcx
+net/sourceforge/jtds/ssl
+META-INF/services
+net/sourceforge/jtds/jdbc
+net/sourceforge/jtds/jdbcx/proxy
+net/sourceforge/jtds
+net/sourceforge/jtds/util
