@@ -1,6 +1,6 @@
 FROM erlangms_debian
 
-MAINTAINER evertonagilar <evertonagilar@gmail.com>
+LABEL maintainer "evertonagilar <evertonagilar@gmail.com>"
 
 ENV HOME /var/opt/erlangms
 ENV ERLANGMS_IN_DOCKER true
@@ -12,7 +12,7 @@ RUN /assets/setup.sh
 RUN rm -rf /assets
 
 # Expose the ports we're interested in
-EXPOSE 2300 2301 2389 4369
+EXPOSE 2300 2301 2389
 
 # Volumes
 VOLUME ~/.erlangms
