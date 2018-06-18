@@ -2,8 +2,9 @@ FROM erlang:20.3.6
 
 LABEL maintainer "evertonagilar <evertonagilar@gmail.com>"
 
-ENV DEBIAN_FRONTEND=noninteractive
+ENV DEBIAN_FRONTEND noninteractive
 ENV TERM xterm-256color
+ENV ENV ~/.bashrc
 
 # Source list
 RUN echo deb http://ftp.br.debian.org/debian stretch main contrib non-free             >> /etc/apt/sources.list

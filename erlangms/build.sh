@@ -35,8 +35,8 @@ if [ ! -z "$ID_IMAGE" ]; then
 	sudo docker rmi -f $ID_IMAGE > /dev/null 2>&1
 fi
 
-sudo docker build --no-cache -t $IMAGE:$VERSION $(dirname $0)
-#sudo docker build -t $IMAGE:$VERSION $(dirname $0)
+#sudo docker build --no-cache -t $IMAGE:$VERSION $(dirname $0)
+sudo docker build -t $IMAGE:$VERSION $(dirname $0)
 
 ID=$(sudo docker images | grep "$IMAGE" | head -n 1 | awk '{print $3}')
 
