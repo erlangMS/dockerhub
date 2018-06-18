@@ -12,6 +12,7 @@ RUN /assets/download_wildfly.sh
  
 ADD assets/jdk /var/opt/jdk
 ADD assets/start.sh /var/opt/erlangms/ems-bus/start.sh
+ADD assets/start_tmux.sh /var/opt/erlangms/ems-bus/start_tmux.sh
 
 RUN /assets/setup.sh
 RUN rm -rf /assets
@@ -20,11 +21,10 @@ ADD assets/standalone.xml /var/opt/wildfly/standalone/configuration/standalone.x
 ADD assets/jtds /var/opt/wildfly/modules/system/layers/base/com/jtds
 ADD deployments /var/opt/wildfly/standalone/deployments
 
-
 # Expose the ports we're interested in
-EXPOSE 2301 2302 9990 8080
+EXPOSE 2301
 
-CMD ["/var/opt/erlangms/ems-bus/start.sh"]
+#CMD /var/opt/erlangms/ems-bus/start_tmux.sh
 
 
 

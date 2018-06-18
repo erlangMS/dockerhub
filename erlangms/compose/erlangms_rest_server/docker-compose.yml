@@ -5,9 +5,7 @@ services:
     image: erlangms_rest_server
     ports:
     - 2301:2301
-    - 2302:2301
-    - 9990:9990
-    - 8080:8080
+    hostname: erlangms
     shm_size: 4G
     stdin_open: true
     tty: true
