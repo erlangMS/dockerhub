@@ -14,7 +14,7 @@ RUN /assets/setup.sh
 RUN rm -rf /assets
 
 # Expose the ports we're interested in
-EXPOSE 2301 2389
+#EXPOSE 2301 2389
 
 # Volumes
 #VOLUME ~/.erlangms
