@@ -33,7 +33,7 @@ done
 cd $CURRENT_DIR
 deps=$(ls -d deps/*/ebin)
 
-echo "Start ErlangMS REST server em background..."
+echo "Start ErlangMS REST server..."
 erl -pa $CURRENT_DIR/ebin $deps \
 	-sname emsbus -setcookie erlangms \
 	-eval "ems_bus:start()" \

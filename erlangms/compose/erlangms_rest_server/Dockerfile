@@ -5,6 +5,7 @@ LABEL maintainer "evertonagilar <evertonagilar@gmail.com>"
 ENV JAVA_HOME /var/opt/jdk/jdk1.8.0_152
 ENV JBOSS_HOME /var/opt/wildfly
 ENV JBOSS_CONFIG standalone.xml
+ENV HOSTNAME="erlangms"
 
 ADD assets /assets
 
@@ -22,7 +23,6 @@ RUN /assets/setup.sh
 
 ADD deployments /var/opt/wildfly/standalone/deployments
 RUN /assets/configura_catalogos.sh
-
 
 RUN rm -rf /assets
 
