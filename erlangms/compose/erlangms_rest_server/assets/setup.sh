@@ -34,5 +34,3 @@ echo "=> Parando WildFly"
 sh $JBOSS_CLI --connect command=:shutdown
 
 
-
-
