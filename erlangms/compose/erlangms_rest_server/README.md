@@ -111,9 +111,9 @@ barramento agindo como servidor REST já com Wildfly para consumo de serviços d
 Este ambiente possui:
  
 
-* Uma instância do *ErlangMS* como servidor HTTP/REST rodando na porta 2301
+* Uma instância do *ErlangMS* como servidor *HTTP/REST* rodando na porta 2301
 
-* Uma instãncia do Wildfly como container Java EE para publicar o pacote .war
+* Uma instãncia do *Wildfly* como container *Java EE* para publicar o pacote war
 
 * Os arquivos de configuração e os *datasources* configurados para acessar o banco de desenvolvimento (desenvbd3.ad-fub.unb.br)
 
@@ -131,7 +131,9 @@ Este ambiente possui:
 Para isso, primeiro edite o arquivo *odbc.ini* e altere o IP do banco de dados que será utilizado para conexão. Depois, edite o arquivo *config/emsbus.conf* e
 na seção *datasources*, altere o usuário/senha de conexão do banco de dados.
 
+<b> 2) Onde deve ser colocado o pacote war para deployment?</b>
 
+O Arquivo war deve ser colocado na pasta deployments do projeto. Note que ao colocar o pacote war, é necessário executar o build novamente com o comando *docker-compose build*.
 
 
 ---
