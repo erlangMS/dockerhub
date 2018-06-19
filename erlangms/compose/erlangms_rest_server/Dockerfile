@@ -13,13 +13,18 @@ RUN /assets/download_wildfly.sh
 ADD assets/jdk /var/opt/jdk
 ADD assets/start.sh /var/opt/erlangms/ems-bus/start.sh
 ADD assets/start_tmux.sh /var/opt/erlangms/ems-bus/start_tmux.sh
-
-RUN /assets/setup.sh
-RUN rm -rf /assets
-
 ADD assets/standalone.xml /var/opt/wildfly/standalone/configuration/standalone.xml
 ADD assets/jtds /var/opt/wildfly/modules/system/layers/base/com/jtds
+ADD odbc.ini /var/opt/erlangms/.odbc.ini
+ADD config   /var/opt/erlangms/.erlangms/
+
+RUN /assets/setup.sh
+
 ADD deployments /var/opt/wildfly/standalone/deployments
+RUN /assets/configura_catalogos.sh
+
+
+RUN rm -rf /assets
 
 # Expose the ports we're interested in
 EXPOSE 2301

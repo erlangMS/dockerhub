@@ -14,7 +14,7 @@ cd ems-bus
 git checkout v2.0.0
 ./build.sh
 
-# Configurações
+# Configurações de log
 hostname erlangms
 mkdir -p /var/log/ems-bus
 ln -s /var/log/ems-bus /var/opt/erlangms/priv/log

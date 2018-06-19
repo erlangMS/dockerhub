@@ -19,15 +19,20 @@ epmd -daemon
 echo "Iniciando WildFly em background..."
 $JBOSS_HOME/bin/standalone.sh -b 0.0.0.0 -c $JBOSS_CONFIG > $JBOSS_HOME/standalone/log/jboss-console.log 2>&1 &
 
-# Instala os catálogos de serviços do projeto unb_servicos em /var/opt/erlangms
-echo "Instalando os catálogos unb_servicos..."
-rm -f /var/opt/erlangms/catalogo.zip
-rm -rf /tmp/unb_servicos
-unzip -q /var/opt/wildfly/standalone/deployments/unb_servicos-1.0.45-RELEASE.war -d /tmp/unb_servicos
-cd /tmp/unb_servicos/WEB-INF/classes
-zip -qr /var/opt/erlangms/catalogo.zip catalogo/
-rm -rf /tmp/unb_servicos
 
+# Configura os catálogos de serviços do projeto unb_servicos em /var/opt/erlangms
+#echo "Configurando os catálogos de serviços..."
+#rm -f /var/opt/erlangms/catalogo.zip
+#rm -rf /tmp/unb_servicos
+#WAR_FILE="$(find /var/opt/wildfly/standalone/deployments -name "*.war" | head -1)"
+#if [ -f $WAR_FILE ]; then
+#	unzip -q "$WAR_FILE" -d /tmp/unb_servicos
+#	cd /tmp/unb_servicos/WEB-INF/classes
+#	zip -qr /var/opt/erlangms/catalogo.zip catalogo/
+#	rm -rf /tmp/unb_servicos
+#fi
+
+echo "Aguardando WildFly estar pronto..."
 sleep 5
 while true; do
 	if ! grep "started in" $JBOSS_HOME/standalone/log/jboss-console.log > /dev/null 2>&1 ; then 
@@ -41,7 +46,7 @@ done
 cd $CURRENT_DIR
 deps=$(ls -d deps/*/ebin)
 
-echo "Iniciando ErlangMS server em background..."
+echo "Iniciando ErlangMS REST server em background..."
 erl -pa $CURRENT_DIR/ebin $deps \
 	-sname emsbus -setcookie erlangms \
 	-eval "ems_bus:start()" \

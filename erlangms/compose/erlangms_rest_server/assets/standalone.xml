@@ -162,7 +162,7 @@
                     <xa-pool>
                         <min-pool-size>1</min-pool-size>
                         <initial-pool-size>1</initial-pool-size>
-                        <max-pool-size>2</max-pool-size>
+                        <max-pool-size>50</max-pool-size>
                         <prefill>true</prefill>
                         <is-same-rm-override>false</is-same-rm-override>
                         <interleaving>false</interleaving>
@@ -194,7 +194,7 @@
             </datasources>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:deployment-scanner:2.0">
-            <deployment-scanner path="deployments" relative-to="jboss.server.base.dir" scan-interval="5000" runtime-failure-causes-rollback="${jboss.deployment.scanner.rollback.on.failure:false}"/>
+            <deployment-scanner path="deployments" relative-to="jboss.server.base.dir" scan-interval="15000" runtime-failure-causes-rollback="${jboss.deployment.scanner.rollback.on.failure:false}"/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:ee:4.0">
             <spec-descriptor-property-replacement>false</spec-descriptor-property-replacement>
@@ -388,7 +388,7 @@
             </security-domains>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:transactions:3.0">
-            <core-environment>
+            <core-environment node-identifier="erlangms">
                 <process-id>
                     <uuid/>
                 </process-id>
@@ -399,7 +399,7 @@
             <buffer-cache name="default"/>
             <server name="default-server">
                 <http-listener name="default" socket-binding="http" redirect-socket="https" enable-http2="true"/>
-                <https-listener name="https" socket-binding="https" security-realm="ApplicationRealm" enable-http2="true"/>
+                <!-- <https-listener name="https" socket-binding="https" security-realm="ApplicationRealm" enable-http2="true"/> -->
                 <host name="default-host" alias="localhost">
                     <location name="/" handler="welcome-content"/>
                     <filter-ref name="server-header"/>
@@ -442,7 +442,7 @@
 
     <socket-binding-group name="standard-sockets" default-interface="public" port-offset="${jboss.socket.binding.port-offset:0}">
         <socket-binding name="management-http" interface="management" port="${jboss.management.http.port:9990}"/>
-        <socket-binding name="management-https" interface="management" port="${jboss.management.https.port:9993}"/>
+        <socket-binding name="management-https" interface="management" port="${jboss.management.https.port:9993}"/> 
         <socket-binding name="ajp" port="${jboss.ajp.port:8009}"/>
         <socket-binding name="http" port="${jboss.http.port:8080}"/>
         <socket-binding name="https" port="${jboss.https.port:8443}"/>
