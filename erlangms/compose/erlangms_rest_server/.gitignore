@@ -1,0 +1,6 @@
+*~
+#*
+*.log
+*.dump
+/logs
+assets/wildfly.tar.gz

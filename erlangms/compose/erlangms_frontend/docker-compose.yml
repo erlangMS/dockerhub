@@ -4,8 +4,8 @@ services:
   frontend:
     image: erlangms/erlangms
     ports:
-     - 2300:2301
-     - 2301:2301
+     - 80:2301
+     - 8080:2301
     shm_size: 3G
     stdin_open: true
     tty: true
