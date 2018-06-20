@@ -4,6 +4,7 @@ LABEL maintainer "evertonagilar <evertonagilar@gmail.com>"
 
 ENV HOME /var/opt/erlangms
 ENV ERLANGMS_IN_DOCKER true
+ENV HOSTNAME="erlangms"
 
 WORKDIR $HOME/ems-bus
 

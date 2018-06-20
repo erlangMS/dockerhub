@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  http_server:
+    image: erlangms/erlangms
+    ports:
+    - 2301:2301
+    shm_size: 3G
+    stdin_open: true
+    tty: true
+    build: .
+    #volumes:
+    #- ./odbc.ini:/var/opt/erlangms/.odbc.ini
+    #- ./config/:/var/opt/erlangms/.erlangms/
+

@@ -21,7 +21,8 @@ wait_for_server() {
 $JBOSS_HOME/bin/add-user.sh geral 123456 --silent
 
 # Configurações para o barramento
-echo JAVA_OPTS=\"\$JAVA_OPTS -Dems_node=node01 -Dems_bus_url=https://desenvservicos.unb.br:2301 -Dems_user=erlangms -Dems_password=5outLag1\" >> /var/opt/wildfly/bin/standalone.conf
+echo JAVA_OPTS=\"\$JAVA_OPTS -XX:+UnlockExperimentalVMOptions -Xms120m -Xmx750m -XX:MinHeapFreeRatio=10 -XX:MaxHeapFreeRatio=70 -XX:CompressedClassSpaceSize=64m -XX:ReservedCodeCacheSize=64m -XX:MaxMetaspaceSize=256m -XX:+UseCGroupMemoryLimitForHeap -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=70 -XX:+ScavengeBeforeFullGC -XX:+CMSScavengeBeforeRemark -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=10 -XX:GCLogFileSize=100M\" >> /var/opt/wildfly/bin/standalone.conf
+echo JAVA_OPTS=\"\$JAVA_OPTS -Dems_node=node01 -Dems_bus_url=127.0.0.1:2301 -Dems_user=erlangms -Dems_password=5outLag1\" >> /var/opt/wildfly/bin/standalone.conf
 echo JAVA_OPTS=\"\$JAVA_OPTS -Dems_smtp_passwd=erl1523 -Dems_smtp_from=erlangms@unb.br -Dems_smtp_port=587 -Dems_smtp=mail.unb.br -Dems_environment=desenv\" >> /var/opt/wildfly/bin/standalone.conf
 
 echo "=> Iniciando WildFly"

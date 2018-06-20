@@ -5,6 +5,6 @@ LABEL maintainer "evertonagilar <evertonagilar@gmail.com>"
 # Expose the ports we're interested in
 EXPOSE 2301
 
-ENTRYPOINT exec tmux new-session -s ErlangMS /var/opt/erlangms/ems-bus/start.sh
+
 
 

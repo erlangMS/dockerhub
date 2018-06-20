@@ -2,9 +2,9 @@ version: '2'
 
 services:
   frontend:
-    image: erlangms/erlangms
+    image: erlangms/erlangms_frontend
     ports:
-     - 80:2301
+     #- 80:2301
      - 8080:2301
     shm_size: 3G
     stdin_open: true

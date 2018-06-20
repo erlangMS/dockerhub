@@ -2,9 +2,12 @@ FROM erlangms/erlangms:2.0.1
 
 MAINTAINER evertonagilar <evertonagilar@gmail.com>
 
-# Expose the ports we're interested in
-EXPOSE 2300 2301
+ADD odbc.ini /var/opt/erlangms/.odbc.ini
+ADD config   /var/opt/erlangms/.erlangms/
 
-#CMD ["/var/opt/erlangms/ems-bus/start.sh"]
+# Expose the ports we're interested in
+EXPOSE 8080
+
+
 
 
