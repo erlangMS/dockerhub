@@ -1,8 +1,8 @@
 #/bin/bash
 
 # Para funcionar tmux ao abrir a imagem
-export ENV=~/.bashrc
-ln -sf /bin/bash /bin/sh
+#export ENV=~/.bashrc
+#ln -sf /bin/bash /bin/sh
 
 # Some useful software for administration
 apt-get install -q -y --no-install-recommends apt-utils curl wget zip unzip net-tools dos2unix
@@ -16,14 +16,14 @@ echo "alias ls='ls $LS_OPTIONS'" >> ~/.bashrc && \
 echo "alias ll='ls $LS_OPTIONS -l'" >> ~/.bashrc && \
 echo "alias l='ls $LS_OPTIONS -lA'" >> ~/.bashrc && \
 echo 'set -g default-terminal "screen-256color"' >> ~/.tmux.conf
-cat >> ~/.bashrc <<EOF
+#cat >> ~/.bashrc <<EOF
 # Run tmux on startup
-if command -v tmux>/dev/null; then
-        if [ ! -z "\$PS1" ]; then # unless shell not loaded interactively, run tmux
-                [[ ! \$TERM =~ screen ]] && [ -z "\$TMUX" ] && tmux
-        fi
-fi
-EOF
+#if command -v tmux>/dev/null; then
+#        if [ ! -z "\$PS1" ]; then # unless shell not loaded interactively, run tmux
+#                [[ ! \$TERM =~ screen ]] && [ -z "\$TMUX" ] && tmux
+#        fi
+#fi
+#EOF
 
 
 # Some important libraries for ErlangMS
