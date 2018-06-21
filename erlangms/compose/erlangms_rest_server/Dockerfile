@@ -20,7 +20,7 @@ ADD config   /var/opt/erlangms/.erlangms/
 
 RUN /assets/setup.sh
 
-ADD deployments /var/opt/wildfly/standalone/deployments
+ADD deployments/*.war /var/opt/wildfly/standalone/deployments/
 RUN /assets/configura_catalogos.sh
 
 RUN rm -rf /assets
