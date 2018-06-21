@@ -5,11 +5,11 @@ export ENV=~/.bashrc
 ln -sf /bin/bash /bin/sh
 
 # Some useful software for administration
-apt-get install -q -y --no-install-recommends apt-utils curl wget zip unzip net-tools
+apt-get install -q -y --no-install-recommends apt-utils curl wget zip unzip net-tools dos2unix
 
 
-# Easy administration with vim, nano e tmux
-apt-get install -q -y --no-install-recommends tmux git vim nano -y && \
+# Easy administration with vim, tmux
+apt-get install -q -y --no-install-recommends tmux git-core vim -y && \
 echo "export LS_OPTIONS='--color=auto'" >> ~/.bashrc && \
 echo "alias tmux='tmux -u'" >> ~/.bashrc && \
 echo "alias ls='ls $LS_OPTIONS'" >> ~/.bashrc && \

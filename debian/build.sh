@@ -23,22 +23,8 @@
 #
 ########################################################################################################
 
-VERSION=1.0.0
-IMAGE=erlangms_debian
+clear
+sudo docker swarm leave --force > /dev/null 2>&1
+sudo docker-compose down > /dev/null 2>&1
+sudo docker-compose build --force-rm --pull
 
-echo "Build $IMAGE:$VERSION..."
-
-
-ID_IMAGE=$(sudo docker images $IMAGE | awk '{print $3}' | uniq | sed '1d')
-if [ ! -z "$ID_IMAGE" ]; then
-	sudo docker stop $ID_IMAGE > /dev/null 2>&1
-	sudo docker rmi -f $ID_IMAGE > /dev/null 2>&1
-fi
-
-sudo docker build --no-cache -t $IMAGE:$VERSION $(dirname $0)
-#sudo docker build -t $IMAGE:$VERSION $(dirname $0)
-
-ID=$(sudo docker images | grep "$IMAGE" | head -n 1 | awk '{print $3}')
-
-sudo docker tag "$ID" $IMAGE:latest
-sudo docker tag "$ID" $IMAGE:$VERSION
