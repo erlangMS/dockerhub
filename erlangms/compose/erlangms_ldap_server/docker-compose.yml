@@ -2,14 +2,14 @@ version: '2'
 
 services:
   ldap_server:
-    image: erlangms/erlangms_ldap_server
+    image: erlangms/ldap_server
     ports:
     - 2389:2389
-    shm_size: 1G
+    shm_size: 420M
     stdin_open: true
     tty: true
     build: .
-    volumes:
-    - ./odbc.ini:/var/opt/erlangms/.odbc.ini
-    - ./config/:/var/opt/erlangms/.erlangms/
+    #volumes:
+    #- ./odbc.ini:/var/opt/erlangms/.odbc.ini
+    #- ./config/:/var/opt/erlangms/.erlangms/
 

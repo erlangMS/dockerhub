@@ -1,4 +1,4 @@
-FROM erlangms/erlangms:2.0.1
+FROM erlangms/erlangms
 
 LABEL maintainer "evertonagilar <evertonagilar@gmail.com>"
 

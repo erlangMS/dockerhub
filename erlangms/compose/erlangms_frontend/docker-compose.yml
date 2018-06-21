@@ -2,21 +2,15 @@ version: '2'
 
 services:
   frontend:
-    image: erlangms/erlangms_frontend
+    image: erlangms/frontend
     ports:
-     #- 80:2301
      - 8081:2301
-    shm_size: 3G
+    shm_size: 250M
     stdin_open: true
     tty: true
     build: .
-    #volumes:
-    # - ./config/:/var/opt/erlangms/.erlangms/
-    # - ./odbc.ini:/var/opt/erlangms/.odbc.ini
-    # - ./projects:/var/www/
-    #dns: 164.41.101.4 
-    #dns_search: 
-    # - ad-fub.unb.br
+    volumes:
+     - ./projects:/var/www/
 
     
 
