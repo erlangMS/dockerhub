@@ -10,4 +10,6 @@ services:
     stdin_open: true
     tty: true
     build: .
+    volumes:
+    - ./deployments/:/var/opt/wildfly/standalone/deployments
 
