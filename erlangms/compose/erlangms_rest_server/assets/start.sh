@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # author Everton de Vargas Agilar <<evertonagilar@gmail.com>>
 #
@@ -15,12 +15,30 @@ CURRENT_DIR="$PWD"
 echo "Start Erlang Port Daemon..."
 epmd -daemon
 
+WAR_FILE="$(ls -1tr /var/opt/wildfly/standalone/deployments/*.war 2> /dev/null | head -1)"
+if [ -f "$WAR_FILE" ]; then
+	WAR_FILENAME=$(basename "$WAR_FILE")
+	
+	# Permance somente o arquivo war mais recente
+	find /var/opt/wildfly/standalone/deployments/ -type f -not -name "$WAR_FILENAME" -delete
+
+	# Configura os catálogos de serviços do projeto unb_servicos em /var/opt/erlangms
+	rm -f /var/opt/erlangms/catalogo.zip
+	rm -rf /tmp/unb_servicos
+	echo "Setup catalogs to $WAR_FILE..."
+	unzip -q "$WAR_FILE" -d /tmp/unb_servicos
+	cd /tmp/unb_servicos/WEB-INF/classes
+	zip -qr /var/opt/erlangms/catalogo.zip catalogo/
+	cd $CURRENT_DIR
+	rm -rf /tmp/unb_servicos
+fi
+
 # Start wildfly
 echo "Start WildFly in background..."
 $JBOSS_HOME/bin/standalone.sh -b 0.0.0.0 -c $JBOSS_CONFIG > $JBOSS_HOME/standalone/log/jboss-console.log 2>&1 &
 
 echo "Waiting for the wildfly to be ready..."
-sleep 5
+sleep 3
 while true; do
 	if ! grep "started in" $JBOSS_HOME/standalone/log/jboss-console.log > /dev/null 2>&1 ; then 
 		sleep 2

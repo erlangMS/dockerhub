@@ -2,6 +2,8 @@ FROM erlang:20.3.6
 
 LABEL maintainer "evertonagilar <evertonagilar@gmail.com>"
 
+SHELL ["/bin/bash", "-c"]
+
 ENV DEBIAN_FRONTEND noninteractive
 ENV TERM xterm-256color
 ENV ENV ~/.bashrc
@@ -26,11 +28,9 @@ RUN echo America/Sao_Paulo > /etc/timezone && \
     dpkg-reconfigure --frontend noninteractive tzdata
 ENV TZ America/Sao_Paulo
 
-
 ADD assets /assets
 RUN /assets/setup.sh
 RUN rm -rf /assets
-
 
 CMD ["/bin/bash"]
 

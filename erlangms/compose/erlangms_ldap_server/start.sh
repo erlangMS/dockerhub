@@ -4,7 +4,5 @@
 #
 
 clear
-sudo docker swarm leave --force > /dev/null 2>&1
-sudo docker-compose down > /dev/null 2>&1
-sudo docker-compose build --force-rm --pull
+echo "Starting erlangms/ldap_server..."
 sudo docker-compose up --force-recreate --remove-orphans

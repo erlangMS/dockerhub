@@ -2,11 +2,13 @@ FROM erlangms/erlangms
 
 LABEL maintainer "evertonagilar <evertonagilar@gmail.com>"
 
+SHELL ["/bin/bash", "-c"]
+
 ENV JAVA_HOME /var/opt/jdk/jdk1.8.0_152
 ENV JBOSS_HOME /var/opt/wildfly
 ENV JBOSS_CONFIG standalone.xml
 
-ADD assets /assets
+ADD assets   /assets
 ADD config   /var/opt/erlangms/.erlangms/
 
 RUN dos2unix -q /assets/*.{sh,xml}
@@ -23,9 +25,6 @@ ADD assets/standalone.xml /var/opt/wildfly/standalone/configuration/standalone.x
 
 RUN /assets/setup_odbc.sh
 RUN /assets/setup_wildfly.sh
-
-ADD deployments/*.war /var/opt/wildfly/standalone/deployments/
-RUN /assets/setup_catalogos.sh
 
 RUN rm -rf /assets
 

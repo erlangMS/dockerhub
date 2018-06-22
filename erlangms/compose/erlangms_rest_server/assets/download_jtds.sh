@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # author Everton de Vargas Agilar <<evertonagilar@gmail.com>>
 #

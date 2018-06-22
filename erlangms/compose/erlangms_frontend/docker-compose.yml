@@ -5,12 +5,14 @@ services:
     image: erlangms/frontend
     ports:
      - 8081:2301
-    shm_size: 250M
+    shm_size: 450M
     stdin_open: true
     tty: true
     build: .
     volumes:
-     - ./projects:/var/www/
+    - ./config/:/var/opt/erlangms/.erlangms/
+    - ./projects:/var/www/
+     
 
     
 

@@ -9,7 +9,6 @@ services:
     stdin_open: true
     tty: true
     build: .
-    #volumes:
-    #- ./odbc.ini:/var/opt/erlangms/.odbc.ini
-    #- ./config/:/var/opt/erlangms/.erlangms/
+    volumes:
+    - ./config/:/var/opt/erlangms/.erlangms/
 

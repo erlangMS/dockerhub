@@ -1,8 +1,7 @@
 #/bin/bash
 
-# Para funcionar tmux ao abrir a imagem
-#export ENV=~/.bashrc
-#ln -sf /bin/bash /bin/sh
+export ENV=~/.bashrc
+ln -sf /bin/bash /bin/sh
 
 # Some useful software for administration
 apt-get install -q -y --no-install-recommends apt-utils curl wget zip unzip net-tools dos2unix

@@ -11,5 +11,6 @@ services:
     tty: true
     build: .
     volumes:
+    - ./config/:/var/opt/erlangms/.erlangms/
     - ./deployments/:/var/opt/wildfly/standalone/deployments
 

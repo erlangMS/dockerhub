@@ -2,8 +2,18 @@ FROM erlangms/erlangms
 
 LABEL maintainer "evertonagilar <evertonagilar@gmail.com>"
 
-ADD odbc.ini /var/opt/erlangms/.odbc.ini
+SHELL ["/bin/bash", "-c"]
+
+ADD assets   /assets
 ADD config   /var/opt/erlangms/.erlangms/
+
+RUN dos2unix -q /assets/*.{sh,xml}
+RUN dos2unix -q /var/opt/erlangms/.odbc.ini
+RUN dos2unix -q /var/opt/erlangms/.erlangms/*.{json,conf,ini}
+
+RUN /assets/setup_odbc.sh
+
+RUN rm -rf /assets
 
 # Expose the ports we're interested in
 EXPOSE 2301

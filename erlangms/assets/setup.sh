@@ -15,9 +15,8 @@ git checkout v2.0.0
 ./build.sh
 
 # Configurações de log
-hostname erlangms
 mkdir -p /var/log/ems-bus
-ln -s /var/log/ems-bus /var/opt/erlangms/priv/log
+ln -s /var/log/ems-bus /var/opt/erlangms/ems-bus/priv/log
 
 # Clean
 apt-get clean && apt-get --purge -y autoremove
