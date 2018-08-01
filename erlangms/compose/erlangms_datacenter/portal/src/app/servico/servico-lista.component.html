@@ -1,0 +1,88 @@
+<!-- 
+<mat-card>
+    <mat-card-title>
+        <h2>Buscar Serviços</h2>
+    </mat-card-title>
+    <mat-card-content>
+
+        <div class="row">
+            <div class="col-md-3">
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Url" name="Url" [(ngModel)]="filtro.url">
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="full-width">
+                    <mat-select [(ngModel)]="filtro.type" placeholder="Tipo">
+                        <mat-option [value]=null></mat-option>
+                        <mat-option *ngFor="let tipo of tipos" [value]=tipo>{{tipo}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <button mat-raised-button color="primary" (click)="buscarServicos()">
+            <i class="material-icons">search</i> Buscar
+        </button>
+    </mat-card-content>
+</mat-card> 
+-->
+
+<br/>
+<mat-card>
+    <mat-card-title>
+        <h1>{{servidor}}</h1>
+    </mat-card-title>
+    <mat-card-subtitle>
+        Lista de Serviços
+    </mat-card-subtitle>
+    <mat-card-content>
+        <mat-form-field class="full-width">
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtro">
+        </mat-form-field>
+
+        <mat-table #table [dataSource]="datasourceServicos">
+            <ng-container matColumnDef="Imagem">
+                <mat-header-cell *matHeaderCellDef>
+                    <b>Imagem</b>
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <i class="material-icons">{{row.glyphicon}}</i>
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="Url">
+                <mat-header-cell *matHeaderCellDef>
+                    <b>Url</b>
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.url}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="Tipo">
+                <mat-header-cell *matHeaderCellDef>
+                    <b>Tipo</b>
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.type}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="Visualizar">
+                <mat-header-cell *matHeaderCellDef>
+                    <b>Detalhar</b>
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <button mat-icon-button color="primary" (click)=preVisualizarServico(row)>
+                        <i class="material-icons">launch</i>
+                    </button>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+
+        <!--
+        <mat-paginator [length]="servicoService.pagerComponent.length" pageSize="10" [pageSizeOptions]="pageSizeOptions" (page)="paginar($event)">
+        </mat-paginator>
+        -->
+    </mat-card-content>
+</mat-card>
