@@ -1,0 +1,86 @@
+[
+	{
+		"name": "/teste/pdf/bash_cookbook.pdf",
+		"comment": "Demonstrar a execução de um script que retorna pdf",
+		"owner": "teste",
+		"version": "1.0.0",
+		"service" : "ems_static_file_service:execute",
+		"url": "/teste/pdf/bash_cookbook.pdf",
+		"path" : "/var",
+		"content-type":"application/pdf",
+		"type": "GET",
+		"glyphicon":"visibility",
+		"lang" : "erlang"
+	},
+
+	{
+		"name": "/teste/pdf/bash_quick_reference.pdf",
+		"comment": "Demonstrar a execução de um script que retorna pdf",
+		"owner": "teste",
+		"version": "1.0.0",
+		"service" : "ems_cmd_service:execute",
+		"url": "/teste/pdf/bash_quick_reference.pdf",
+		"script" : [ "cat /var/pdf/bash_quick_reference.pdf" ],
+		"content-type":"application/pdf",
+		"type": "GET",
+		"glyphicon":"visibility",
+		"lang" : "erlang"
+	},
+
+	{
+		"name": "/teste/log/tail",
+		"comment": "Demonstrar a execução de um script que retorna texto plano",
+		"owner": "teste",
+		"version": "1.0.0",
+		"service" : "ems_cmd_service:execute",
+		"url": "/teste/log/tail",
+		"script" : [ "find /var/log/ems-bus -type f -name '*.log' -mtime -1 | xargs cat" ],
+		"content_type" : "text/plain",
+		"type": "GET",
+		"glyphicon":"today",
+		"lang" : "erlang"
+	},
+	
+	{
+		"name": "/teste/html",
+		"comment": "Demonstrar a execução de um script que retorna html",
+		"owner": "teste",
+		"version": "1.0.0",
+		"service" : "ems_cmd_service:execute",
+		"url": "/teste/html",
+		"script" : [ "cat /var/scripts/teste.html" ],
+		"content_type" : "text/html",
+		"type": "GET",
+		"glyphicon":"description",
+		"lang" : "erlang"
+	},
+	
+	{
+		"name": "/teste/html2",
+		"comment": "Demonstrar a execução de um script que retorna html",
+		"owner": "teste",
+		"version": "1.0.0",
+		"service" : "ems_static_file_service:execute",
+		"url": "/teste/teste.html",
+		"path" : "/var/scripts",
+		"content_type" : "text/html",
+		"type": "GET",
+		"glyphicon":"description",
+		"lang" : "erlang"
+	},
+	
+	{
+		"name": "/teste/current_date",
+		"comment": "Demonstrar a execução de um script que retorna json",
+		"owner": "teste",
+		"version": "1.0.0",
+		"service" : "ems_cmd_service:execute",
+		"url": "/teste/current_date",
+		"script" : [ "/var/scripts/current_date.sh" ],
+		"content_type" : "application/json",
+		"type": "GET",
+		"glyphicon":"history",
+		"lang" : "erlang"
+	}
+	
+]
