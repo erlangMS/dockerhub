@@ -7,7 +7,7 @@
 		"service" : "ems_static_file_service:execute",
 		"url": "/teste/pdf/bash_cookbook.pdf",
 		"path" : "/var",
-		"content-type":"application/pdf",
+		"content_type":"application/pdf",
 		"type": "GET",
 		"glyphicon":"visibility",
 		"lang" : "erlang"
@@ -21,7 +21,7 @@
 		"service" : "ems_cmd_service:execute",
 		"url": "/teste/pdf/bash_quick_reference.pdf",
 		"script" : [ "cat /var/pdf/bash_quick_reference.pdf" ],
-		"content-type":"application/pdf",
+		"content_type":"application/pdf",
 		"type": "GET",
 		"glyphicon":"visibility",
 		"lang" : "erlang"
