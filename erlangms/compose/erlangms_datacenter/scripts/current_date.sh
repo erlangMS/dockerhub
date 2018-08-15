@@ -1,4 +1,4 @@
 #/bin/bash
 
-echo "{\"ok\", \"$(date)\"}"
+echo "{\"ok\" : \"$(date)\"}"
 
