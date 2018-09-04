@@ -1,0 +1,129 @@
+{
+  "kind": "Deployment",
+  "apiVersion": "extensions/v1beta1",
+  "metadata": {
+    "name": "erlangms-datacenter",
+    "namespace": "ssi",
+    "selfLink": "/apis/extensions/v1beta1/namespaces/ssi/deployments/erlangms-datacenter",
+    "uid": "b0fa5a00-b032-11e8-8700-0050568169c4",
+    "resourceVersion": "14606993",
+    "generation": 4,
+    "creationTimestamp": "2018-09-04T11:07:19Z",
+    "labels": {
+      "name": "erlangms-datacenter"
+    },
+    "annotations": {
+      "deployment.kubernetes.io/revision": "4"
+    }
+  },
+  "spec": {
+    "replicas": 1,
+    "selector": {
+      "matchLabels": {
+        "name": "erlangms-datacenter"
+      }
+    },
+    "template": {
+      "metadata": {
+        "creationTimestamp": null,
+        "labels": {
+          "name": "erlangms-datacenter"
+        }
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "erlangms-datacenter-vol-config",
+            "configMap": {
+              "name": "erlangms-datacenter-configs",
+              "defaultMode": 420
+            }
+          },
+          {
+            "name": "erlangms-datacenter-vol-portal",
+            "persistentVolumeClaim": {
+              "claimName": "erlangms-datacenter-vol-portal"
+            }
+          },
+          {
+            "name": "erlangms-datacenter-vol-scripts",
+            "persistentVolumeClaim": {
+              "claimName": "erlangms-datacenter-vol-scripts"
+            }
+          }
+        ],
+        "containers": [
+          {
+            "name": "erlangms-datacenter",
+            "image": "erlangms/http_server:latest",
+            "ports": [
+              {
+                "containerPort": 80,
+                "protocol": "TCP"
+              }
+            ],
+            "resources": {},
+            "volumeMounts": [
+              {
+                "name": "erlangms-datacenter-vol-config",
+                "mountPath": "/var/opt/erlangms/.erlangms/"
+              },
+              {
+                "name": "erlangms-datacenter-vol-portal",
+                "mountPath": "/var/portal"
+              },
+              {
+                "name": "erlangms-datacenter-vol-scripts",
+                "mountPath": "/var/scripts"
+              }
+            ],
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "imagePullPolicy": "Always",
+            "stdin": true,
+            "tty": true
+          }
+        ],
+        "restartPolicy": "Always",
+        "terminationGracePeriodSeconds": 30,
+        "dnsPolicy": "ClusterFirst",
+        "securityContext": {},
+        "schedulerName": "default-scheduler"
+      }
+    },
+    "strategy": {
+      "type": "RollingUpdate",
+      "rollingUpdate": {
+        "maxUnavailable": 1,
+        "maxSurge": 1
+      }
+    },
+    "revisionHistoryLimit": 10,
+    "progressDeadlineSeconds": 600
+  },
+  "status": {
+    "observedGeneration": 4,
+    "replicas": 1,
+    "updatedReplicas": 1,
+    "readyReplicas": 1,
+    "availableReplicas": 1,
+    "conditions": [
+      {
+        "type": "Available",
+        "status": "True",
+        "lastUpdateTime": "2018-09-04T11:07:20Z",
+        "lastTransitionTime": "2018-09-04T11:07:20Z",
+        "reason": "MinimumReplicasAvailable",
+        "message": "Deployment has minimum availability."
+      },
+      {
+        "type": "Progressing",
+        "status": "True",
+        "lastUpdateTime": "2018-09-04T11:29:41Z",
+        "lastTransitionTime": "2018-09-04T11:29:35Z",
+        "reason": "NewReplicaSetAvailable",
+        "message": "ReplicaSet \"erlangms-datacenter-59c7f776b7\" has successfully progressed."
+      }
+    ]
+  }
+}

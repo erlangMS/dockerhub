@@ -1,0 +1,31 @@
+{
+  "kind": "Service",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "erlangms-datacenter",
+    "namespace": "ssi",
+    "selfLink": "/api/v1/namespaces/ssi/services/erlangms-datacenter",
+    "uid": "d2dd615b-af92-11e8-8700-0050568169c4",
+    "resourceVersion": "14473623",
+    "creationTimestamp": "2018-09-03T16:02:57Z"
+  },
+  "spec": {
+    "ports": [
+      {
+        "name": "2301-tcp",
+        "protocol": "TCP",
+        "port": 80,
+        "targetPort": 2301
+      }
+    ],
+    "selector": {
+      "name": "erlangms-datacenter"
+    },
+    "clusterIP": "10.3.0.206",
+    "type": "ClusterIP",
+    "sessionAffinity": "None"
+  },
+  "status": {
+    "loadBalancer": {}
+  }
+}

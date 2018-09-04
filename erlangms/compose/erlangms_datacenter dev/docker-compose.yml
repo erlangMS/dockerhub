@@ -2,17 +2,18 @@ version: '2'
 
 services:
   datacenter:
-    image: dkr.unb.br/erlangms-datacenter:1.0.0
-    image: dkr.unb.br/erlangms-datacenter:latest
+    image: erlangms/datacenter
     ports:
-     - 8081:2301
-    shm_size: 2G
+     - 8082:2301
+    shm_size: 450M
     stdin_open: true
     tty: true
     build: .
     volumes:
     - ./config/:/var/opt/erlangms/.erlangms/
+    - ./portal:/var/www/portal
     - ./scripts:/var/scripts
+    - ./pdf:/var/pdf
      
 
     

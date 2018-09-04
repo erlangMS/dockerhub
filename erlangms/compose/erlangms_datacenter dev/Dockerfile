@@ -4,9 +4,8 @@ LABEL maintainer "evertonagilar <evertonagilar@gmail.com>"
 
 SHELL ["/bin/bash", "-c"]
 
-ADD assets   	  /assets
-#ADD config   	  /var/opt/erlangms/.erlangms/
-ADD portal/dist   /var/www/portal
+ADD assets   /assets
+ADD config   /var/opt/erlangms/.erlangms/
 
 RUN dos2unix -q /assets/*.{sh,xml}
 RUN dos2unix -q /var/opt/erlangms/.odbc.ini
