@@ -13,6 +13,8 @@ services:
     volumes:
     - ./config/:/var/opt/erlangms/.erlangms/
     - ./scripts:/var/scripts
+    
+
      
 
     

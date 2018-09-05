@@ -4,8 +4,9 @@ LABEL maintainer "evertonagilar <evertonagilar@gmail.com>"
 
 SHELL ["/bin/bash", "-c"]
 
+ENV HOSTNAME="dc.unb.br"
+
 ADD assets   	  /assets
-#ADD config   	  /var/opt/erlangms/.erlangms/
 ADD portal/dist   /var/www/portal
 
 RUN dos2unix -q /assets/*.{sh,xml}
