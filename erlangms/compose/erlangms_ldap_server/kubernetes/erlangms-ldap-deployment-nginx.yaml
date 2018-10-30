@@ -1,0 +1,110 @@
+{
+  "kind": "Deployment",
+  "apiVersion": "extensions/v1beta1",
+  "metadata": {
+    "name": "erlangms-ldap-nginx",
+    "namespace": "ssi",
+    "selfLink": "/apis/extensions/v1beta1/namespaces/ssi/deployments/erlangms-ldap-nginx",
+    "uid": "6a3d0a9d-a561-11e8-8700-0050568169c4",
+    "generation": 1,
+    "creationTimestamp": "2018-08-21T16:44:04Z",
+    "labels": {
+      "name": "erlangms-ldap-nginx"
+    },
+    "annotations": {
+      "deployment.kubernetes.io/revision": "1"
+    }
+  },
+  "spec": {
+    "replicas": 1,
+    "selector": {
+      "matchLabels": {
+        "name": "erlangms-ldap-nginx"
+      }
+    },
+    "template": {
+      "metadata": {
+        "creationTimestamp": null,
+        "labels": {
+          "name": "erlangms-ldap-nginx"
+        }
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "erlangms-ldap-nginx",
+            "configMap": {
+              "name": "erlangms-ldap-nginx",
+              "defaultMode": 420
+            }
+          }
+        ],
+        "containers": [
+          {
+            "name": "erlangms-ldap-nginx",
+            "image": "nginx:latest",
+            "ports": [
+              {
+                "containerPort": 389,
+                "protocol": "TCP"
+              },
+              {
+                "containerPort": 2389,
+                "protocol": "TCP"
+              }
+            ],
+            "resources": {},
+            "volumeMounts": [
+              {
+                "name": "erlangms-ldap-nginx",
+                "mountPath": "/etc/nginx/conf.d"
+              }
+            ],
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "imagePullPolicy": "Always"
+          }
+        ],
+        "restartPolicy": "Always",
+        "terminationGracePeriodSeconds": 30,
+        "dnsPolicy": "ClusterFirst",
+        "securityContext": {},
+        "schedulerName": "default-scheduler"
+      }
+    },
+    "strategy": {
+      "type": "RollingUpdate",
+      "rollingUpdate": {
+        "maxUnavailable": 1,
+        "maxSurge": 1
+      }
+    },
+    "revisionHistoryLimit": 10,
+    "progressDeadlineSeconds": 600
+  },
+  "status": {
+    "observedGeneration": 1,
+    "replicas": 1,
+    "updatedReplicas": 1,
+    "readyReplicas": 1,
+    "availableReplicas": 1,
+    "conditions": [
+      {
+        "type": "Available",
+        "status": "True",
+        "lastUpdateTime": "2018-08-21T16:44:04Z",
+        "lastTransitionTime": "2018-08-21T16:44:04Z",
+        "reason": "MinimumReplicasAvailable",
+        "message": "Deployment has minimum availability."
+      },
+      {
+        "type": "Progressing",
+        "status": "True",
+        "lastUpdateTime": "2018-08-21T16:44:44Z",
+        "lastTransitionTime": "2018-08-21T16:44:04Z",
+        "reason": "NewReplicaSetAvailable",
+        "message": "ReplicaSet \"erlangms-ldap-nginx-6cbdb8dd48\" has successfully progressed."
+      }
+    ]
+  }
+}

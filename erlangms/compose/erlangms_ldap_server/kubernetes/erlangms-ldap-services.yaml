@@ -1,0 +1,30 @@
+{
+  "kind": "Service",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "erlangms-ldap",
+    "namespace": "ssi",
+    "selfLink": "/api/v1/namespaces/ssi/services/erlangms-ldap",
+    "uid": "d2dd615b-af92-11e8-8700-0050568169c4",
+    "creationTimestamp": "2018-09-03T16:02:57Z"
+  },
+  "spec": {
+    "ports": [
+      {
+        "name": "389-tcp",
+        "protocol": "TCP",
+        "port": 389,
+        "targetPort": 2389
+      }
+    ],
+    "selector": {
+      "name": "erlangms-ldap"
+    },
+    "clusterIP": "10.3.0.208",
+    "type": "ClusterIP",
+    "sessionAffinity": "None"
+  },
+  "status": {
+    "loadBalancer": {}
+  }
+}

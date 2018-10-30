@@ -1,0 +1,42 @@
+{
+  "kind": "Service",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "erlangms-ldap-nginx",
+    "namespace": "ssi",
+    "selfLink": "/api/v1/namespaces/ssi/services/erlangms-ldap-nginx",
+    "uid": "c3e34b9e-a561-11e8-8700-0050568169c4",
+    "creationTimestamp": "2018-08-21T16:46:35Z",
+    "labels": {
+      "app": "erlangms-ldap-nginx"
+    }
+  },
+  "spec": {
+    "ports": [
+      {
+        "name": "tcp-80",
+        "protocol": "TCP",
+        "port": 80,
+        "targetPort": 80,
+        "nodePort": 32666
+      }
+    ],
+    "selector": {
+      "name": "erlangms-ldap-nginx"
+    },
+    "clusterIP": "10.3.0.38",
+    "type": "LoadBalancer",
+    "sessionAffinity": "None",
+    "loadBalancerIP": "164.41.106.25",
+    "externalTrafficPolicy": "Cluster"
+  },
+  "status": {
+    "loadBalancer": {
+      "ingress": [
+        {
+          "ip": "164.41.106.25"
+        }
+      ]
+    }
+  }
+}
