@@ -26,10 +26,63 @@
 	},
 	
 	{
-		"id" : 7,
+		"id" : 3,
 		"name": "uid=unb,dc=unb,dc=br",
 		"login" : "objectclass",
 		"active": true,
 		"type" : 0
+	},
+
+	{
+		"id" : 4,
+		"name": "Administrador LDAP Sites",
+		"login" : "ldapsites",
+		"password": "@sit1512!b#",
+		"passwd_crypto" : "",
+		"active": true,
+		"type" : 0,
+		"admin" : true,
+		"email" : "sites@unb.br",
+		"type_email" : 1
+	},
+
+	{
+		"id" : 5,
+		"name": "Administrador LDAP sispo",
+		"login" : "ldapsispo",
+		"password": "@ldp1516!b#",
+		"passwd_crypto" : "",
+		"active": true,
+		"type" : 0,
+		"admin" : true,
+		"email" : "sipos@unb.br",
+		"type_email" : 1
+	},
+		
+	{
+		"id" : 6,
+		"name": "Administrador LDAP Redmine",
+		"login" : "ldapredmine",
+		"password": "@red1525Qj!b#",
+		"passwd_crypto" : "",
+		"active": true,
+		"type" : 0,
+		"admin" : true,
+		"email" : "redmine@unb.br",
+		"type_email" : 1
+	},
+
+	{
+		"id" : 7,
+		"name": "Administrador LDAP pentaho",
+		"login" : "ldappentaho",
+		"password": "@ldpenHDo16!q#",
+		"passwd_crypto" : "",
+		"active": true,
+		"type" : 0,
+		"admin" : true,
+		"email" : "pentaho@unb.br",
+		"type_email" : 1
 	}
+
 ]

@@ -2,10 +2,11 @@ version: '2'
 
 services:
   ldap_server:
-    image: erlangms/ldap_server
+    image: dkr.unb.br/erlangms-ldap:1.0.0
+    image: dkr.unb.br/erlangms-ldap:latest
     ports:
     - 2389:2389
-    shm_size: 420M
+    shm_size: 2G
     stdin_open: true
     tty: true
     build: .

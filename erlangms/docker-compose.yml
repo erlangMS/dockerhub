@@ -2,7 +2,7 @@ version: '2'
 
 services:
   erlangms:
-    image: erlangms/erlangms:2.0.2
+    image: erlangms/erlangms:2.0.4
     image: erlangms/erlangms:latest
     shm_size: 1G
     stdin_open: true
