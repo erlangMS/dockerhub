@@ -11,7 +11,7 @@ ln -s /root/.hosts.erlang ~/.hosts.erlang
 cd $HOME
 git clone http://github.com/erlangms/ems-bus ems-bus
 cd ems-bus
-git checkout v2.0.4
+git checkout v2.0.5
 ./build.sh
 
 # Configurações de log
