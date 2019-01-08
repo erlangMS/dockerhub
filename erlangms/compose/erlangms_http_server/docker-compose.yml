@@ -2,8 +2,9 @@ version: '2'
 
 services:
   http_server:
-    image: erlangms/http_server:2.0.4
+    image: erlangms/http_server:2.0.6
     image: erlangms/http_server:latest
+    container_name: http_server
     ports:
     - 2301:2301
     shm_size: 3G

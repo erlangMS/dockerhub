@@ -11,12 +11,11 @@ ln -s /root/.hosts.erlang ~/.hosts.erlang
 cd $HOME
 git clone http://github.com/erlangms/ems-bus ems-bus
 cd ems-bus
-git checkout v2.0.5
+#git checkout v2.0.6
 ./build.sh
 
 # Configurações de log
-mkdir -p /var/log/ems-bus
-ln -s /var/log/ems-bus /var/opt/erlangms/ems-bus/priv/log
+ln -s /var/opt/erlangms/ems-bus/priv/log /var/log/ems-bus
 
 # Configurações para o cliente SSH
 echo 'StrictHostKeyChecking no' >> /etc/ssh/ssh_config

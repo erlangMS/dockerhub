@@ -3,6 +3,8 @@ version: '2'
 services:
   rest_server:
     image: erlangms/rest_server
+    image: erlangms/rest_server:latest
+    container_name: rest_server
     ports:
     - 2301:2301
     hostname: erlangms

@@ -2,8 +2,9 @@ version: '2'
 
 services:
   ldap_server:
-    image: dkr.unb.br/erlangms-ldap:1.0.0
+    image: dkr.unb.br/erlangms-ldap:2.0.6
     image: dkr.unb.br/erlangms-ldap:latest
+    container_name: ldap_server
     ports:
     - 2389:2389
     shm_size: 2G

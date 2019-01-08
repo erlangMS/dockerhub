@@ -37,13 +37,22 @@ apt-get install -q -y --no-install-recommends unixodbc \
 					  libcppdb-odbc0 \
 					  libltdl7 \
 					  libcppdb0 \
-					  ldap-utils
+					  ldap-utils \
+					  odbc-postgresql
+					  
 
 
 echo "Register FreeTDS SQL-server driver in /etc/odbcinst.ini..."
 echo "[FreeTDS]" >> /etc/odbcinst.ini 
 echo "Description=FreeTDS Driver" >> /etc/odbcinst.ini 
 echo "Driver=/usr/lib/x86_64-linux-gnu/odbc/libtdsodbc.so" >> /etc/odbcinst.ini 
+echo " " >> /etc/odbcinst.ini 
+
+echo "Register FreeTDS Postgresql driver in /etc/odbcinst.ini..."
+echo "[PostgreSQL]" >> /etc/odbcinst.ini 
+echo "Description= ODBC for PostgreSQL" >> /etc/odbcinst.ini 
+echo "Driver		= /usr/lib/x86_64-linux-gnu/odbc/psqlodbcw.so" >> /etc/odbcinst.ini 
+echo "Driver64	= /usr/lib/x86_64-linux-gnu/odbc/psqlodbcw.so" >> /etc/odbcinst.ini 
 echo " " >> /etc/odbcinst.ini 
 
 echo "Tunning fs.file-max. At least it should be 1000000..."
@@ -64,5 +73,3 @@ fi
 
 # Clean
 apt-get clean && apt-get --purge -y autoremove
-
-

@@ -2,8 +2,9 @@ version: '2'
 
 services:
   erlangms:
-    image: erlangms/erlangms:2.0.4
+    image: erlangms/erlangms:2.0.6
     image: erlangms/erlangms:latest
+    container_name: erlangms
     shm_size: 1G
     stdin_open: true
     tty: true
