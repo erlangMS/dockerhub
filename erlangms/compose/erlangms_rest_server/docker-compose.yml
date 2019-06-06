@@ -2,8 +2,7 @@ version: '2'
 
 services:
   rest_server:
-    image: erlangms/rest_server
-    image: erlangms/rest_server:latest
+    image: erlangms/rest_server:2.0.7
     container_name: rest_server
     ports:
     - 2301:2301
