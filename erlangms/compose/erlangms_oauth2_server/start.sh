@@ -4,5 +4,5 @@
 #
 
 clear
-echo "Starting erlangms/http_server..."
+echo "Starting erlangms/oauth2_server..."
 sudo docker-compose up --force-recreate --remove-orphans
