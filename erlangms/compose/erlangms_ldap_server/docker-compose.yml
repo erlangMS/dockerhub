@@ -2,7 +2,7 @@ version: '2'
 
 services:
   ldap_server:
-    image: dkr.unb.br/erlangms-ldap:2.0.7
+    image: erlangms/ldap_server:2.0.7
     container_name: ldap_server
     ports:
     - 2389:2389
