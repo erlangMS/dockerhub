@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  oauth2_server:
+    image: erlangms/oauth2_server:2.0.7
+    image: erlangms/oauth2_server:latest
+    container_name: oauth2_server
+    ports:
+    - 2301:2301
+    shm_size: 3G
+    stdin_open: true
+    tty: true
+    build: .
+    volumes:
+    - ./config/:/var/opt/erlangms/.erlangms/
+

@@ -1,0 +1,9 @@
+Prezados
+
+O build.sh requer que exista a pasta assets/ems-bus!!! 
+
+Você deve baixar o projeto ems-bus dentro de assets para fazer o build e 
+depois do build da imagem pronta pode apagar a pasta ems-bus.
+
+Att.
+Everton Agilar

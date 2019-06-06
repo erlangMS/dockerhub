@@ -8,11 +8,11 @@ ln -s /root/.odbc.ini ~/.odbc.ini
 ln -s /root/.hosts.erlang ~/.hosts.erlang
 
 # ErlangMs installation
-cd $HOME
-git clone http://github.com/erlangms/ems-bus ems-bus
-cd ems-bus
-#git checkout v2.0.6
-./build.sh
+mv  /assets/ems-bus $HOME
+cd $HOME/ems-bus
+#git clone -b odbc_db2_driver --single-branch  https://github.com/erlangms/ems-bus ems-bus
+echo "Fazendo build do ems-bus..."
+./build.sh --skip-deps
 
 # Configurações de log
 ln -s /var/opt/erlangms/ems-bus/priv/log /var/log/ems-bus
