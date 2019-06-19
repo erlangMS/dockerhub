@@ -10,7 +10,6 @@ ln -s /root/.hosts.erlang ~/.hosts.erlang
 # ErlangMs installation
 mv  /assets/ems-bus $HOME
 cd $HOME/ems-bus
-#git clone -b odbc_db2_driver --single-branch  https://github.com/erlangms/ems-bus ems-bus
 echo "Fazendo build do ems-bus..."
 ./build.sh --skip-deps
 

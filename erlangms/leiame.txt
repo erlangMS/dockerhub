@@ -1,9 +1,40 @@
 Prezados
 
-A partir da versão v2.0.7 do barramento, o build.sh requer que exista a pasta assets/ems-bus!!! 
 
-Você deve baixar o projeto ems-bus dentro de assets para fazer o build e 
-depois que fazer o build da imagem não esqueça de apagar a pasta ems-bus.
+Observação 1
+==========================
+
+A partir da versão v2.0.7 do barramento, é preciso  exista a pasta assets/ems-bus!!! 
+
+Você deve baixar o projeto ems-bus (ou colar a pasta) dentro de assets para fazer o build da imagem.
+
+Depois de gerar a imagem, não esqueça de apagar a pasta ems-bus.
+
+
+Observação 2
+==========================
+
+
+Não esqueça de versionar a imagem no arquivo docker-compose.yml como mostrado abaixo:
+
+
+services:
+  erlangms:
+    image: erlangms/erlangms:2.0.7    <-   versão aqui
+    container_name: erlangms
+    shm_size: 1G
+    stdin_open: true
+    tty: true
+    build: 
+
+
+
+Observação 3
+==========================
+
+Se precisar "refazer" uma imagem que já está sendo usado em produção, eh melhor 
+gerar uma imagem com outra versão por questões de backup.
+
 
 
 Att.
