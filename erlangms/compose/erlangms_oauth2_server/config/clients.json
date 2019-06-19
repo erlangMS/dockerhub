@@ -1,0 +1,21 @@
+[
+	{
+		"id" : 1,
+		"name": "erlangms@unb.br",
+		"description": "erlangms@unb.br",
+		"secret": "CPD",
+		"redirect_uri" : "/portal/index.html",
+		"active": true,
+		"scope": "user_db,user_fs"
+	},
+	
+	{
+		"id" : 2,
+		"name": "insomnia",
+		"description": "InsomniaREST",
+		"secret": "insomnia",
+		"redirect_uri" : "/portal/index.html",
+		"active": true,
+		"scope": "user_db,user_fs"
+	}
+]
