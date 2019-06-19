@@ -1,9 +1,10 @@
 Prezados
 
-O build.sh requer que exista a pasta assets/ems-bus!!! 
+A partir da versão v2.0.7 do barramento, o build.sh requer que exista a pasta assets/ems-bus!!! 
 
 Você deve baixar o projeto ems-bus dentro de assets para fazer o build e 
-depois do build da imagem pronta pode apagar a pasta ems-bus.
+depois que fazer o build da imagem não esqueça de apagar a pasta ems-bus.
+
 
 Att.
 Everton Agilar
