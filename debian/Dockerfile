@@ -1,4 +1,4 @@
-FROM erlang:21.1.1
+FROM erlang:22.0.2
 
 LABEL maintainer "evertonagilar <evertonagilar@gmail.com>"
 

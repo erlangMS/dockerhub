@@ -1,0 +1,110 @@
+{
+    "name": "ems_user_loader_db",
+	"comment": "Catalog for ems_user_loader_db",
+	"owner": "data_loader",
+	"version": "1.0.0",
+	"service" : "ems_data_loader:start",
+	"url": "/emsbus/ems_user_loader_db",
+	"type": "KERNEL",
+	"lang" : "erlang",
+	"update_checkpoint" : 15000,
+	"datasource" : "dbsmdev",
+	"start_timeout" : 5000,
+	"middleware" : "ems_user_loader_middleware",
+	"group" : [],
+	"pool_size" : 1,
+	"pool_max" : 1,
+	"enable" : false,
+	"source_type" : "user_db",
+	"sql_load_packet_length" : 60000,
+	"sql_load" : 
+				"select u.ID_USUARIO as id,  
+							u.ID_PESSOA as codigo, 
+							u.LOGIN as login, 
+							u.NOME_USUARIO as nome, 
+							(select dp.NUMERO_DOCUMENTO  
+							 from dbsm.DOC_PESSOAS dp 
+							 where dp.ID_TDOC_PESSOA = 1 and dp.ID_PESSOA = p.id_pessoa) as cpf, 
+							 u.SENHA as password, 
+							 'BLOWFISH' as passwd_crypto,  
+							 null as endereco, 
+							 null as complemento_endereco, 
+							 null as bairro, 
+							 null as cidade, 
+							 null as uf, 
+							 null as cep, 
+							 (select dp.NUMERO_DOCUMENTO  
+							 from dbsm.DOC_PESSOAS dp  
+							 where dp.ID_TDOC_PESSOA = 3 and dp.ID_PESSOA = p.id_pessoa) as rg,  
+							 null as data_nascimento, 
+							 null as sexo, 
+							 null as telefone, 
+							 null as celular, 
+							 null as ddd, 
+							 null as nome_pai, 
+							 null as nome_mae, 
+							 null as nacionalidade, 
+							 null as email, 
+							 1 as type, 
+							 0 as subtype, 
+							 case 
+								when u.SITUACAO_USUARIO = 'A' then 1 
+								else 0 
+							 end as active, 
+							 u.DT_ALT_SENHA as dt_expire_password, 
+							 timestamp(u.DT_ALTERACAO, u.HR_ALTERACAO) as ctrl_modified 
+					from dbsm.usuarios u join dbsm.PESSOAS p 
+							on u.ID_PESSOA = p.ID_PESSOA
+				",
+
+	"sql_update" :	
+				"select u.ID_USUARIO as id,  
+							u.ID_PESSOA as codigo, 
+							u.LOGIN as login, 
+							u.NOME_USUARIO as nome, 
+							(select dp.NUMERO_DOCUMENTO  
+							 from dbsm.DOC_PESSOAS dp 
+							 where dp.ID_TDOC_PESSOA = 1 and dp.ID_PESSOA = p.id_pessoa) as cpf, 
+							 u.SENHA as password, 
+							 'BLOWFISH' as passwd_crypto,  
+							 null as endereco, 
+							 null as complemento_endereco, 
+							 null as bairro, 
+							 null as cidade, 
+							 null as uf, 
+							 null as cep, 
+							 (select dp.NUMERO_DOCUMENTO  
+							 from dbsm.DOC_PESSOAS dp  
+							 where dp.ID_TDOC_PESSOA = 3 and dp.ID_PESSOA = p.id_pessoa) as rg,  
+							 null as data_nascimento, 
+							 null as sexo, 
+							 null as telefone, 
+							 null as celular, 
+							 null as ddd, 
+							 null as nome_pai, 
+							 null as nome_mae, 
+							 null as nacionalidade, 
+							 null as email, 
+							 1 as type, 
+							 0 as subtype, 
+							 case 
+								when u.SITUACAO_USUARIO = 'A' then 1 
+								else 0 
+							 end as active, 
+							 u.DT_ALT_SENHA as dt_expire_password, 
+							 timestamp(u.DT_ALTERACAO, u.HR_ALTERACAO) as ctrl_modified 
+					from dbsm.usuarios u join dbsm.PESSOAS p 
+							on u.ID_PESSOA = p.ID_PESSOA 
+					where timestamp(u.DT_ALTERACAO, u.HR_ALTERACAO) > ? or 
+						   timestamp(p.DT_ALTERACAO, p.HR_ALTERACAO) > ? 
+				",
+	
+			
+	"fields" : ["id", "codigo", "login", "name", "cpf", "password", 
+				"passwd_crypto", "endereco", "complemento_endereco", 
+				"bairro", "cidade", "uf", "cep", "rg", "data_nascimento", 
+				"sexo", "telefone", "celular", "ddd", "nome_pai", "nome_mae", 
+				"nacionalidade", "email", "type", "subtype", 
+				"active", "dt_expire_password", "ctrl_modified"]
+				
+}
