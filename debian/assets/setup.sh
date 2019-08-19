@@ -27,8 +27,6 @@ echo 'set -g default-terminal "screen-256color"' >> ~/.tmux.conf
 
 # Some important libraries for ErlangMS
 apt-get install -q -y --no-install-recommends unixodbc \
-					  tdsodbc \
-					  freetds-common \
 					  odbcinst1debian2 \
 					  odbcinst \
 					  libcppdb-sqlite3-0 \
@@ -38,21 +36,36 @@ apt-get install -q -y --no-install-recommends unixodbc \
 					  libltdl7 \
 					  libcppdb0 \
 					  ldap-utils \
-					  odbc-postgresql
+					  odbc-postgresql \
+					  apt-transport-https
+					  #freetds-common \
+					  #tdsodbc \
 					  
+curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 
+curl https://packages.microsoft.com/config/debian/9/prod.list > /etc/apt/sources.list.d/mssql-release.list
 
-echo "Register FreeTDS SQL-server driver in /etc/odbcinst.ini..."
-echo "[FreeTDS]" >> /etc/odbcinst.ini 
-echo "Description=FreeTDS Driver" >> /etc/odbcinst.ini 
-echo "Driver=/usr/lib/x86_64-linux-gnu/odbc/libtdsodbc.so" >> /etc/odbcinst.ini 
+apt-get update
+
+ACCEPT_EULA=Y apt-get install msodbcsql17=17.3.1.1-1
+
+# echo "Register FreeTDS SQL-server driver in /etc/odbcinst.ini..."
+# echo "[FreeTDS]" >> /etc/odbcinst.ini 
+# echo "Description=FreeTDS Driver" >> /etc/odbcinst.ini 
+# echo "Driver=/usr/lib/x86_64-linux-gnu/odbc/libtdsodbc.so" >> /etc/odbcinst.ini 
+# echo " " >> /etc/odbcinst.ini 
+
+echo "Register Postgresql driver in /etc/odbcinst.ini..."
+echo "[PostgreSQL]" >> /etc/odbcinst.ini 
+echo "Description=ODBC for PostgreSQL" >> /etc/odbcinst.ini 
+echo "Driver=/usr/lib/x86_64-linux-gnu/odbc/psqlodbcw.so" >> /etc/odbcinst.ini 
+echo "Driver64=/usr/lib/x86_64-linux-gnu/odbc/psqlodbcw.so" >> /etc/odbcinst.ini 
 echo " " >> /etc/odbcinst.ini 
 
-echo "Register FreeTDS Postgresql driver in /etc/odbcinst.ini..."
-echo "[PostgreSQL]" >> /etc/odbcinst.ini 
-echo "Description= ODBC for PostgreSQL" >> /etc/odbcinst.ini 
-echo "Driver		= /usr/lib/x86_64-linux-gnu/odbc/psqlodbcw.so" >> /etc/odbcinst.ini 
-echo "Driver64	= /usr/lib/x86_64-linux-gnu/odbc/psqlodbcw.so" >> /etc/odbcinst.ini 
+echo "Register ODBC Driver 17 for SQL Server driver in /etc/odbcinst.ini..."
+echo "[MSODBCSQL]" >> /etc/odbcinst.ini 
+echo "Description=Microsoft ODBC Driver 17 for SQL Server" >> /etc/odbcinst.ini 
+echo "Driver=/opt/microsoft/msodbcsql17/lib64/libmsodbcsql-17.3.so.1.1" >> /etc/odbcinst.ini 
 echo " " >> /etc/odbcinst.ini 
 
 echo "Tunning fs.file-max. At least it should be 1000000..."
