@@ -1,4 +1,4 @@
-FROM erlangms/debian:latest
+FROM erlangms/debian:2.0.7
 
 LABEL maintainer "evertonagilar <evertonagilar@gmail.com>"
 

@@ -2,7 +2,7 @@ version: '2'
 
 services:
   oauth2_server:
-    image: erlangms/oauth2_server:2.0.7
+    image: dkr.unb.br/oauth2_server:2.0.7
     container_name: oauth2_server
     ports:
     - 2301:2301
