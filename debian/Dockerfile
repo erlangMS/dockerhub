@@ -1,6 +1,7 @@
 FROM erlang:22.0.2
+# Versão anterior FROM erlang:22.0.2
 
-LABEL maintainer "evertonagilar <evertonagilar@gmail.com>"
+LABEL maintainer="evertonagilar <evertonagilar@gmail.com>"
 
 SHELL ["/bin/bash", "-c"]
 

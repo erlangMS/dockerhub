@@ -1,6 +1,6 @@
-FROM erlangms/debian:2.0.7
+FROM erlangms/debian:2.0.9
 
-LABEL maintainer "evertonagilar <evertonagilar@gmail.com>"
+LABEL maintainer="evertonagilar <evertonagilar@gmail.com>"
 
 SHELL ["/bin/bash", "-c"]
 

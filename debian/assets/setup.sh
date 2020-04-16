@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 export ENV=~/.bashrc
 ln -sf /bin/bash /bin/sh
@@ -7,26 +7,17 @@ ln -sf /bin/bash /bin/sh
 apt-get install -q -y --no-install-recommends apt-utils curl wget zip unzip net-tools dos2unix
 
 
-# Easy administration with vim, tmux
-apt-get install -q -y --no-install-recommends tmux git-core vim -y && \
-echo "export LS_OPTIONS='--color=auto'" >> ~/.bashrc && \
-echo "alias tmux='tmux -u'" >> ~/.bashrc && \
-echo "alias ls='ls $LS_OPTIONS'" >> ~/.bashrc && \
-echo "alias ll='ls $LS_OPTIONS -l'" >> ~/.bashrc && \
-echo "alias l='ls $LS_OPTIONS -lA'" >> ~/.bashrc && \
-echo 'set -g default-terminal "screen-256color"' >> ~/.tmux.conf
-#cat >> ~/.bashrc <<EOF
-# Run tmux on startup
-#if command -v tmux>/dev/null; then
-#        if [ ! -z "\$PS1" ]; then # unless shell not loaded interactively, run tmux
-#                [[ ! \$TERM =~ screen ]] && [ -z "\$TMUX" ] && tmux
-#        fi
-#fi
-#EOF
+# Easy administration with vim
+apt-get install -q -y --no-install-recommends git-core vim -y
+echo "export LS_OPTIONS='--color=auto'" >> ~/.bashrc
 
 
 # Some important libraries for ErlangMS
-apt-get install -q -y --no-install-recommends unixodbc \
+apt-get install -q -y multiarch-support \
+					  unixodbc-bin \
+					  libc-l10n \
+					  libsasl2-modules qt-at-spi \
+					  unixodbc \
 					  odbcinst1debian2 \
 					  odbcinst \
 					  libcppdb-sqlite3-0 \
@@ -37,26 +28,33 @@ apt-get install -q -y --no-install-recommends unixodbc \
 					  libcppdb0 \
 					  ldap-utils \
 					  odbc-postgresql \
-					  apt-transport-https
-					  #freetds-common \
-					  #tdsodbc \
-					  
+					  apt-transport-https \
+					  freetds-common \
+					  tdsodbc 
+
+
+# Para o driver de conexão sql server oficial da MS					  
 curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
-
 curl https://packages.microsoft.com/config/debian/9/prod.list > /etc/apt/sources.list.d/mssql-release.list
-
 apt-get update
-
 ACCEPT_EULA=Y apt-get install msodbcsql17=17.3.1.1-1
 
-# echo "Register FreeTDS SQL-server driver in /etc/odbcinst.ini..."
-# echo "[FreeTDS]" >> /etc/odbcinst.ini 
-# echo "Description=FreeTDS Driver" >> /etc/odbcinst.ini 
-# echo "Driver=/usr/lib/x86_64-linux-gnu/odbc/libtdsodbc.so" >> /etc/odbcinst.ini 
-# echo " " >> /etc/odbcinst.ini 
+
+echo "Register FreeTDS SQL-server driver in /etc/odbcinst.ini..."
+echo "[FreeTDS]" >> /etc/odbcinst.ini 
+echo "Description=FreeTDS Driver" >> /etc/odbcinst.ini 
+echo "Driver=/usr/lib/x86_64-linux-gnu/odbc/libtdsodbc.so" >> /etc/odbcinst.ini 
+echo " " >> /etc/odbcinst.ini 
 
 echo "Register Postgresql driver in /etc/odbcinst.ini..."
 echo "[PostgreSQL]" >> /etc/odbcinst.ini 
+echo "Description=ODBC for PostgreSQL" >> /etc/odbcinst.ini 
+echo "Driver=/usr/lib/x86_64-linux-gnu/odbc/psqlodbcw.so" >> /etc/odbcinst.ini 
+echo "Driver64=/usr/lib/x86_64-linux-gnu/odbc/psqlodbcw.so" >> /etc/odbcinst.ini 
+echo " " >> /etc/odbcinst.ini 
+
+echo "Register Postgresql driver in /etc/odbcinst.ini..."
+echo "[PostgreSQL ANSI]" >> /etc/odbcinst.ini 
 echo "Description=ODBC for PostgreSQL" >> /etc/odbcinst.ini 
 echo "Driver=/usr/lib/x86_64-linux-gnu/odbc/psqlodbcw.so" >> /etc/odbcinst.ini 
 echo "Driver64=/usr/lib/x86_64-linux-gnu/odbc/psqlodbcw.so" >> /etc/odbcinst.ini 
@@ -83,6 +81,8 @@ if [ $FILE_MAX -lt $FILE_MAX_DEF ]; then
 	sysctl -p > /dev/null 2>&1
 fi
 
+# Configurações para o cliente SSH
+echo 'StrictHostKeyChecking no' >> /etc/ssh/ssh_config
 
 # Clean
 apt-get clean && apt-get --purge -y autoremove
