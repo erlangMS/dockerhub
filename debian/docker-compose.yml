@@ -3,7 +3,7 @@ version: '2'
 services:
   erlangms_debian:
     image: erlangms/debian:2.0.9
-    shm_size: 600M
+    shm_size: 4000M
     stdin_open: true
     tty: true
     build: .
