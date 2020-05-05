@@ -13,6 +13,8 @@ README.txt
 env.*
 /devops/*
 /projects/*
+/assets/releases
+/assets/ems-bus
 
 # To prevent storing dev/temporary container data
 *.csv
